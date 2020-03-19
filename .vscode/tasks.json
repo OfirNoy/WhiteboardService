@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-srv",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/WhiteboardService.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-ui",
+            "windows": {
+                "command": ".\\build-whiteboardlib.cmd",
+              },
+              "options": {
+				"cwd": "${workspaceRoot}\\WhiteboardWasm"
+			},            
+            "type": "shell",            
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-srv",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/WhiteboardService.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish-ui",
+            "windows": {
+                "command": ".\\publish-whiteboardlib.cmd",
+              },
+              "options": {
+				"cwd": "${workspaceRoot}\\WhiteboardWasm"
+			},            
+            "type": "shell",            
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/WhiteboardService.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
