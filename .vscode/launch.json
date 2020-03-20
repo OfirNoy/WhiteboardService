@@ -21,7 +21,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "WB_CORS_ORIGINS": "http://10.100.102.7:8080"
+                "WB_CORS_ORIGINS": "http://localhost:8080"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
