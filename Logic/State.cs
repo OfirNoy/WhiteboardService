@@ -10,6 +10,7 @@ namespace WhiteboardService.Logic
 {
     public class State
     {
+        const int COMMIT = 1;
         private string _dbFolder;
         private string _userName;
         private string _userEmail;
@@ -70,6 +71,11 @@ namespace WhiteboardService.Logic
                 var stored = db.GetData<BoardUpdate>(update.BoardId);
                 stored.Moves.AddRange(update.Moves);
                 db.SetData(update.BoardId, stored);
+                
+                if(update.UpdateType == COMMIT)
+                {
+                    db.CommitChanges();
+                }
             }
         }
     }
